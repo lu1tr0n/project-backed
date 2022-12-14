@@ -1,0 +1,27 @@
+package com.luis.navarro.people.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.luis.navarro.people.dtos.Response;
+import com.luis.navarro.people.services.DocumentTypeService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/people")
+@RequiredArgsConstructor
+public class PeopleController {
+
+	@Autowired
+	private DocumentTypeService documentService;
+	
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> getAllDocument(){
+		return null;
+	}
+}

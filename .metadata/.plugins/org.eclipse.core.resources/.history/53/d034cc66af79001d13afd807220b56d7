@@ -1,0 +1,52 @@
+package com.luis.navarro.people.services.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.luis.navarro.people.dtos.IdentityCardDTO;
+import com.luis.navarro.people.models.IdentityCard;
+import com.luis.navarro.people.repositories.IdentifyCardRepository;
+import com.luis.navarro.people.services.IdentifyCardService;
+
+@Service("IdentifyCardService")
+public class IdentityCardServiceImpl implements IdentifyCardService {
+	
+	@Autowired
+	private IdentifyCardRepository repo;
+	
+	private static final ObjectMapper mapper = new ObjectMapper();
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Optional<IdentityCardDTO> findByNumber(String number) {
+		return mapper.convertValue(repo.findByNumber(number), Optional.class);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<IdentityCardDTO> findByAll() {
+		return mapper.convertValue(repo.findAll(), List.class);
+	}
+
+	@Override
+	public IdentityCardDTO saveByIdentityCard(IdentityCardDTO request) {
+		IdentityCard saveResponse = mapper.convertValue(request, IdentityCard);
+		
+		return null;
+	}
+
+	@Override
+	public IdentityCardDTO updateByIdentityCard(IdentityCardDTO request) {
+		return null;
+	}
+
+	@Override
+	public Boolean deleteByIdentityCard(String number) {
+		return null;
+	}
+
+}

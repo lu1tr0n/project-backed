@@ -1,0 +1,13 @@
+spring.application.name=people-service
+server.port=8080
+server.shutdown=graceful
+
+######## MongoDB Configuration  #########
+spring.data.mongodb.authentication-database=admin
+spring.data.mongodb.port=27017
+spring.data.mongodb.username=test
+spring.data.mongodb.password=pwd
+spring.data.mongodb.database=people
+#spring.data.mongodb.host=localhost
+spring.data.mongodb.uri=mongodb://test:pwd@localhost/people
+spring.data.mongodb.auto-index-creation=true

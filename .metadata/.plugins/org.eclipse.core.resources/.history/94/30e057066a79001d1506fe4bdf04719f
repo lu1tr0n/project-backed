@@ -1,0 +1,9 @@
+package com.luis.navarro.people.repositories;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.luis.navarro.people.models.IdentityCard;
+
+public interface DocumentTypeRepository extends MongoRepository<DocumentType, String> {
+
+}

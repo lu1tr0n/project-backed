@@ -1,0 +1,12 @@
+package com.luis.navarro.security.utils;
+
+import java.io.Serializable;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class JwtTokenUtil implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+}

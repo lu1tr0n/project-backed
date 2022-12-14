@@ -1,0 +1,22 @@
+package com.luis.navarro.people.services.impl;
+
+import java.util.Optional;
+
+import com.luis.navarro.people.models.DocumentType;
+import com.luis.navarro.people.services.DocumentTypeService;
+
+public class DocumentTypeServiceImpl implements DocumentTypeService {
+
+	@Override
+	public Optional<DocumentType> findByCode(String code) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public DocumentType saveDocument(DocumentType document) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

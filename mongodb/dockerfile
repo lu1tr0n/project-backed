@@ -1,0 +1,6 @@
+#Create MongoDB Image for MongoDB Tutorial Application
+FROM mongo
+
+MAINTAINER luis.navarro.alvarez.1991@gmail.com
+
+EXPOSE 27017

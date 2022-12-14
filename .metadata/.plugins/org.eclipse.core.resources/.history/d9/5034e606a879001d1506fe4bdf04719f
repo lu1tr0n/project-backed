@@ -1,0 +1,16 @@
+package com.luis.navarro.people.utils;
+
+import java.io.Serializable;
+
+import org.springframework.http.ResponseEntity;
+
+import com.luis.navarro.people.dtos.Response;
+
+public class ResponseFactory implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	public static ResponseEntity<Response> ok(Object response) {
+		return new ResponseEntity<>(new Response("Operación realizada con éxito", response), HttpStatus.OK);
+	}
+}

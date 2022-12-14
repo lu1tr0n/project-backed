@@ -1,0 +1,16 @@
+package com.luis.navarro.people.dtos;
+
+import java.io.Serializable;
+
+public class Response implements Serializable {
+	
+	/** The message. */
+	private String message;
+
+	/** The errors. */
+	private Object errors;
+
+	/** The response. */
+	private Object response;
+
+}

@@ -1,0 +1,18 @@
+package com.luis.navarro.people.services.impl;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.luis.navarro.people.models.IdentityCard;
+import com.luis.navarro.people.services.IdentifyCardService;
+
+@Service
+public class IdentityCardServiceImpl implements IdentifyCardService {
+
+	@Override
+	public Optional<IdentityCard> findByNumber() {
+		return Optional.empty();
+	}
+
+}

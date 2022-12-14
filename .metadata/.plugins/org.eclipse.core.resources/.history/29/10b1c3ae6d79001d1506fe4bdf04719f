@@ -1,0 +1,17 @@
+package com.luis.navarro.people.services.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.luis.navarro.people.models.DocumentType;
+import com.luis.navarro.people.services.DocumentTypeService;
+
+@Service
+public class DocumentTypeServiceImpl implements DocumentTypeService {
+
+	@Override
+	public DocumentType saveDocument(DocumentType document) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

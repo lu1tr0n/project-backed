@@ -1,0 +1,9 @@
+package com.luis.navarro.security.utils;
+
+import java.io.Serializable;
+
+public class JwtTokenUtil implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+}

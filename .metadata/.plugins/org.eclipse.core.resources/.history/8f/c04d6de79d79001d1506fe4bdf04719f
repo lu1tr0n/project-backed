@@ -1,0 +1,7 @@
+package com.luis.navarro.people.services.impl;
+
+import com.luis.navarro.people.services.DocumentTypeService;
+
+public class DocumentTypeServiceImpl implements DocumentTypeService {
+
+}

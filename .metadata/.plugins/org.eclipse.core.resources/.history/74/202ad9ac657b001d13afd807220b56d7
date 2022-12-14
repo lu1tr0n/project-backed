@@ -1,0 +1,5 @@
+package com.luis.navarro.security.dtos;
+
+public class JwtRequest {
+
+}

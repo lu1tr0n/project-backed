@@ -1,0 +1,5 @@
+package com.luis.navarro.people.models;
+
+public class DocumentType {
+
+}

@@ -1,0 +1,15 @@
+package com.luis.navarro.people.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.luis.navarro.people.dtos.IdentityCardDTO;
+
+public interface IdentifyCardService {
+	
+	public List<IdentityCardDTO> findByAll();
+
+	public Optional<IdentityCardDTO> findByNumber(String number);
+
+	public IdentityCardDTO updateByIdentityCard(IdentityCardDTO request);
+}

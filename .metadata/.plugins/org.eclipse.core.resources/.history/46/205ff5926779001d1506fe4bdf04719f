@@ -1,0 +1,5 @@
+package com.luis.navarro.people.services.impl;
+
+public class IdentityCardServiceImpl {
+
+}

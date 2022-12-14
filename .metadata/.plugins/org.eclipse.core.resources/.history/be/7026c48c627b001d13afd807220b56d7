@@ -1,0 +1,5 @@
+package com.luis.navarro.security.utils;
+
+public class JwtTokenUtil {
+
+}

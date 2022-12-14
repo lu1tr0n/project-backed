@@ -1,0 +1,73 @@
+package com.luis.navarro.people.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.luis.navarro.people.dtos.IdentityCardDTO;
+import com.luis.navarro.people.dtos.Response;
+import com.luis.navarro.people.services.DocumentTypeService;
+import com.luis.navarro.people.services.IdentityCardService;
+import com.luis.navarro.people.utils.ResponseFactory;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/people")
+@RequiredArgsConstructor
+public class PeopleController {
+
+	@Autowired
+	private DocumentTypeService documentService;
+	
+	@Autowired
+	private IdentityCardService identityService;
+	
+	/* Get All Document Person
+	 * */
+	@GetMapping(value = "/documents", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> getAllDocument(){
+		return ResponseFactory.ok(documentService.findByAll());
+	}
+	
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> getAllIdentityDocument(){
+		return ResponseFactory.ok(identityService.findByAll());
+	}
+	
+	/* Get All Identity Document Person
+	 * */
+	@GetMapping(value = "/identity", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> getIdentityDocument(@RequestParam(name = "identity_number") String identityNumber){
+		return ResponseFactory.ok(identityService.findByNumber(identityNumber));
+	}
+	
+	/* Save Document Person
+	 * */
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> saveDocument(@RequestBody IdentityCardDTO request){
+		return ResponseFactory.ok(identityService.saveByIdentityCard(request));
+	}
+	
+	/* Update Document Person
+	 * */
+	@PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> updateDocument(@RequestBody IdentityCardDTO request) {
+		return ResponseFactory.ok(identityService.updateByIdentityCard(request));
+	}
+	
+	/* Delete Document Person
+	 * */
+	@DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response> deleteDocument(@RequestParam(name = "identity_number") String identityNumber) {
+		return ResponseFactory.ok(identityService.deleteByIdentityCard(identityNumber));
+	}
+}

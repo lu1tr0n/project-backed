@@ -1,0 +1,7 @@
+package com.luis.navarro.people.configs;
+
+import org.springframework.boot.CommandLineRunner;
+
+public class DataInitializer implements CommandLineRunner {
+
+}

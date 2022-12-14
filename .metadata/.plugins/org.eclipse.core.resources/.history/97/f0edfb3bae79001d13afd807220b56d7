@@ -1,0 +1,21 @@
+package com.luis.navarro.people.dtos;
+
+import java.io.Serializable;
+import java.time.LocalTime;
+
+import com.luis.navarro.people.models.DocumentType;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class DocumentTypeDTO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+}

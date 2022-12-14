@@ -1,0 +1,11 @@
+package com.luis.navarro.people.repositories;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.luis.navarro.people.models.IdentityCard;
+
+@Repository
+public interface IdentifyCardRepository extends MongoRepository<IdentityCard, String> {
+
+}

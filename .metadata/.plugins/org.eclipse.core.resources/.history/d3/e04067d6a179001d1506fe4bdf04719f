@@ -1,0 +1,12 @@
+package com.luis.navarro.people.services;
+
+import java.util.Optional;
+
+import com.luis.navarro.people.models.DocumentType;
+
+public interface DocumentTypeService {
+	
+	Optional<DocumentType> findByCode(String code);
+
+	public DocumentType saveDocument(DocumentType document);
+}

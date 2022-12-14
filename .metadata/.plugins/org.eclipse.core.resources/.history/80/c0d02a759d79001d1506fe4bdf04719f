@@ -1,0 +1,6 @@
+package com.luis.navarro.people.services;
+
+public interface DocumentTypeService {
+
+	public DocumentType saveDocument(DocumentType document);
+}

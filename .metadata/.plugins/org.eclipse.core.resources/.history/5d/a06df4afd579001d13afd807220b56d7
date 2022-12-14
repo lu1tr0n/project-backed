@@ -1,0 +1,21 @@
+package com.luis.navarro.people.dtos;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@RequiredArgsConstructor
+public class Response implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	private String message;
+
+	private Object response;
+}

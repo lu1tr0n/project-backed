@@ -1,0 +1,19 @@
+package com.luis.navarro.people.configs;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import com.luis.navarro.people.dtos.Response;
+import com.luis.navarro.people.exceptions.NoFoundDataException;
+
+@ControllerAdvice
+public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
+
+	@ExceptionHandler(NoFoundDataException.class)
+	public ResponseEntity<Response> userNotFoundException(NoFoundDataException ex) {
+		ErrorDetails errorModel = new ErrorDetails(0, ex.getMessage());
+	    return new ResponseEntity < ErrorDetails > (errorModel, HttpStatus.NOT_FOUND);
+	}
+}

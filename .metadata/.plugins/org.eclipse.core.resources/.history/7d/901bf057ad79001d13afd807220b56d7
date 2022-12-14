@@ -1,0 +1,10 @@
+package com.luis.navarro.people.services;
+
+import java.util.Optional;
+
+import com.luis.navarro.people.models.IdentityCard;
+
+public interface IdentifyCardService {
+
+	public Optional<IdentityCard> findByNumber(String number);
+}

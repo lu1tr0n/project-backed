@@ -1,0 +1,23 @@
+package com.luis.navarro.people.services.impl;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.luis.navarro.people.models.IdentityCard;
+import com.luis.navarro.people.repositories.IdentifyCardRepository;
+import com.luis.navarro.people.services.IdentifyCardService;
+
+@Service("IdentifyCardService")
+public class IdentityCardServiceImpl implements IdentifyCardService {
+	
+	@Autowired
+	private IdentifyCardRepository repo;
+
+	@Override
+	public Optional<IdentityCard> findByNumber(String number) {
+		return repo.findByNumber(number);
+	}
+
+}

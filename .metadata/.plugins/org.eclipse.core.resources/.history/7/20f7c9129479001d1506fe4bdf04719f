@@ -1,0 +1,25 @@
+package com.luis.navarro.people.configs;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
+
+import com.mongodb.ConnectionString;
+import com.mongodb.client.MongoClient;
+
+@Configuration
+public class MongoConfig extends AbstractMongoClientConfiguration {
+
+	@Override
+	protected String getDatabaseName() {
+		return "people";
+	}
+
+	@Override
+	public MongoClient mongoClient() {
+		 ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/test");
+	        MongoClientSettings mongoClientSettings = MongoClientSettings.builder().applyConnectionString(connectionString).build();
+	        
+	        return MongoClients.create(mongoClientSettings);
+	}
+
+}

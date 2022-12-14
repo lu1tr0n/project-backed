@@ -1,0 +1,94 @@
+package com.luis.navarro.people.services.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.luis.navarro.people.dtos.DocumentTypeDTO;
+import com.luis.navarro.people.dtos.IdentityCardDTO;
+import com.luis.navarro.people.models.DocumentType;
+import com.luis.navarro.people.models.IdentityCard;
+import com.luis.navarro.people.repositories.DocumentTypeRepository;
+import com.luis.navarro.people.repositories.IdentifyCardRepository;
+import com.luis.navarro.people.services.IdentityCardService;
+
+@Service
+public class IdentityCardServiceImpl implements IdentityCardService {
+	
+	@Autowired
+	private IdentifyCardRepository identityRepo;
+	
+	@Autowired
+	private DocumentTypeRepository documentRepo;
+	
+	private static final ObjectMapper mapper = new ObjectMapper();
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Optional<IdentityCardDTO> findByNumber(String number) {
+		return mapper.convertValue(identityRepo.findByNumber(number), Optional.class);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<IdentityCardDTO> findByAll() {
+		return mapper.convertValue(identityRepo.findAll(), List.class);
+	}
+
+	@Override
+	public IdentityCardDTO saveByIdentityCard(IdentityCardDTO request) {
+		var saveResponse = new IdentityCard();
+		var saveDocument = new DocumentType();
+		/* Get document type
+		 * */
+		saveDocument = this.saveOrUpdateDocumentType(request.getDocumentType());
+		
+		saveResponse.setNumber(request.getNumber());
+		saveResponse.setExpiryDate(request.getExpiryDate());
+		saveResponse.setDocumentType(saveDocument);
+		/* Result convert DTO
+		 * */
+		return mapper.convertValue(identityRepo.insert(saveResponse), IdentityCardDTO.class);
+	}
+
+	@Override
+	public IdentityCardDTO updateByIdentityCard(IdentityCardDTO request) {
+		var updateResponse = new IdentityCard();
+		var updateDocument = new DocumentType();
+		
+		/* Get document type
+		 * */
+		updateDocument = this.saveOrUpdateDocumentType(request.getDocumentType());
+		
+		Optional<IdentityCard> updateIdentity = identityRepo.findByNumber(request.getNumber());
+		
+		return null;
+	}
+
+	@Override
+	public Boolean deleteByIdentityCard(String number) {
+		return null;
+	}
+
+	/**
+	 * @param documentType
+	 * @return
+	 */
+	private DocumentType saveOrUpdateDocumentType(DocumentTypeDTO documentType) {
+		var saveDocument = new DocumentType();
+		Optional<DocumentType> documentResponse = documentRepo.findByCode(documentType != null 
+				&& documentType.getCode() != null ? documentType.getCode() : "");
+		
+		if (Boolean.FALSE.equals(documentResponse.isEmpty())) {
+			saveDocument = documentResponse.get();
+		} else {
+			saveDocument.setCode(documentType.getCode());
+			saveDocument.setName(documentType.getName());
+			saveDocument = documentRepo.save(saveDocument);
+		}
+		return saveDocument;
+	}
+}

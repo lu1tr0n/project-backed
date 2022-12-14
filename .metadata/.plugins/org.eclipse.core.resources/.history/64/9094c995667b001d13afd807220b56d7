@@ -1,0 +1,5 @@
+package com.luis.navarro.security.configs;
+
+public class JwtAuthenticationEntryPoint {
+
+}

@@ -1,0 +1,20 @@
+package com.luis.navarro.people.controllers;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.luis.navarro.people.dtos.Response;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/api/people")
+@RequiredArgsConstructor
+public class PeopleController {
+
+	public ResponseEntity<Response> getAllDocument(){
+		
+		return null;
+	}
+}

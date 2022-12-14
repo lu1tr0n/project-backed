@@ -1,0 +1,5 @@
+package com.luis.navarro.people.utils;
+
+public class ResponseFactory {
+
+}
